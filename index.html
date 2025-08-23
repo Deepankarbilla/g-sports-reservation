@@ -5,10 +5,26 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>G-Sports Reservation</title>
   <link rel="stylesheet" href="style.css" />
+  <style>
+    .timestamp {
+      text-align: center;
+      background: #444;
+      color: #32cd32; /* green */
+      font-weight: bold;
+      font-family: monospace;
+      padding: 8px;
+      margin-bottom: 10px;
+      border-radius: 4px;
+    }
+  </style>
 </head>
 <body>
   <div class="container">
     <a href="#" class="back-link">← Back</a>
+
+    <!-- Live Timer -->
+    <div class="timestamp" id="live-timer"></div>
+
     <div class="logo">GITAM<br><span class="tagline">DEEMED TO BE UNIVERSITY</span></div>
     <h2>G-Sports</h2>
     <h3>Reservation information</h3>
@@ -37,5 +53,28 @@
       <tr><td>Remarks</td><td class="approved">Approved</td></tr>
     </table>
   </div>
+
+  <script>
+    function updateTimer() {
+      const now = new Date();
+
+      // Format date as YYYY-MMM-DD
+      const year = now.getFullYear();
+      const month = now.toLocaleString('en-US', { month: 'short' }).toUpperCase();
+      const day = String(now.getDate()).padStart(2, '0');
+
+      // Format time as HH:MM:SS
+      const hours = String(now.getHours()).padStart(2, '0');
+      const minutes = String(now.getMinutes()).padStart(2, '0');
+      const seconds = String(now.getSeconds()).padStart(2, '0');
+
+      const formatted = `${year}-${month}-${day} ${hours}:${minutes}:${seconds}`;
+      document.getElementById("live-timer").textContent = formatted;
+    }
+
+    // Update every second
+    setInterval(updateTimer, 1000);
+    updateTimer();
+  </script>
 </body>
 </html>
