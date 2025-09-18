@@ -16,6 +16,56 @@
       margin: 10px 0;
       border-radius: 4px;
     }
+    .approved {
+      color: green;
+      font-weight: bold;
+    }
+    .container {
+      max-width: 700px;
+      margin: auto;
+      font-family: Arial, sans-serif;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 15px;
+    }
+    table td {
+      border: 1px solid #ccc;
+      padding: 8px;
+    }
+    .profile-cell {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .profile-pic {
+      width: 80px;
+      height: auto;
+      border-radius: 6px;
+    }
+    .logo {
+      font-weight: bold;
+      text-align: center;
+      font-size: 22px;
+      margin-top: 10px;
+    }
+    .tagline {
+      font-size: 14px;
+      font-weight: normal;
+      display: block;
+    }
+    h2, h3 {
+      text-align: center;
+      margin: 5px 0;
+    }
+    .back-link {
+      display: inline-block;
+      margin-bottom: 10px;
+      text-decoration: none;
+      color: #007bff;
+      font-weight: bold;
+    }
   </style>
 </head>
 <body>
@@ -26,11 +76,15 @@
     <h2>G-Sports</h2>
     <h3>Reservation information</h3>
 
-    <!-- Live Timer (moved below heading) -->
+    <!-- Live Timer -->
     <div class="timestamp" id="live-timer"></div>
 
     <table>
       <tr><td>Ref. number</td><td>20250707545462</td></tr>
+      <tr><td>Reserved date</td><td class="approved">18-Sep-2025</td></tr>
+      <tr><td>Reserved slot</td><td class="approved">03:00 PM to 04:00 PM</td></tr>
+      <tr><td>Status</td><td class="approved">Approved</td></tr>
+
       <tr><td>Stadium</td><td>Fitness & Performance Centre</td></tr>
       <tr><td>Facility</td><td>Fitness & Performance Centre</td></tr>
       <tr><td>Court</td><td>room 1</td></tr>
@@ -47,9 +101,6 @@
       <tr><td>Request from</td><td>VSP - GIT - CSE</td></tr>
       <tr><td>Mobile</td><td>8977602969</td></tr>
       <tr><td>E-mail</td><td>jbilla@gitam.in</td></tr>
-      <tr><td>Reserved date</td><td>17-Sep-2025</td></tr>
-      <tr><td>Reserved slot</td><td>03:00 PM to 04:00 PM</td></tr>
-      <tr><td>Status</td><td class="approved">Approved</td></tr>
       <tr><td>Remarks</td><td class="approved">Approved</td></tr>
     </table>
   </div>
