@@ -15,6 +15,10 @@
       padding: 8px;
       margin: 10px 0;
       border-radius: 4px;
+      transition: opacity 0.3s ease-in-out;
+    }
+    .hidden {
+      opacity: 0;
     }
     .approved {
       color: green;
@@ -120,7 +124,15 @@
       const seconds = String(now.getSeconds()).padStart(2, '0');
 
       const formatted = `${year}-${month}-${day} ${hours}:${minutes}:${seconds}`;
-      document.getElementById("live-timer").textContent = formatted;
+      const timerElement = document.getElementById("live-timer");
+      timerElement.textContent = formatted;
+
+      // Blink with seconds
+      if (parseInt(seconds) % 2 === 0) {
+        timerElement.classList.remove("hidden");
+      } else {
+        timerElement.classList.add("hidden");
+      }
     }
 
     // Update every second
