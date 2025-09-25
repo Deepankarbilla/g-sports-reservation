@@ -15,7 +15,7 @@
       padding: 8px;
       margin: 10px 0;
       border-radius: 4px;
-      transition: opacity 0.3s ease-in-out;
+      transition: opacity 0.25s ease-in-out;
     }
     .hidden {
       opacity: 0;
@@ -113,31 +113,26 @@
     function updateTimer() {
       const now = new Date();
 
-      // Format date as YYYY-MMM-DD
       const year = now.getFullYear();
       const month = now.toLocaleString('en-US', { month: 'short' }).toUpperCase();
       const day = String(now.getDate()).padStart(2, '0');
-
-      // Format time as HH:MM:SS
       const hours = String(now.getHours()).padStart(2, '0');
       const minutes = String(now.getMinutes()).padStart(2, '0');
       const seconds = String(now.getSeconds()).padStart(2, '0');
 
       const formatted = `${year}-${month}-${day} ${hours}:${minutes}:${seconds}`;
-      const timerElement = document.getElementById("live-timer");
-      timerElement.textContent = formatted;
-
-      // Blink with seconds
-      if (parseInt(seconds) % 2 === 0) {
-        timerElement.classList.remove("hidden");
-      } else {
-        timerElement.classList.add("hidden");
-      }
+      document.getElementById("live-timer").textContent = formatted;
     }
 
-    // Update every second
+    // Update timer text every second
     setInterval(updateTimer, 1000);
     updateTimer();
+
+    // Make it blink faster (every 500ms)
+    setInterval(() => {
+      const timerElement = document.getElementById("live-timer");
+      timerElement.classList.toggle("hidden");
+    }, 500);
   </script>
 </body>
 </html>
