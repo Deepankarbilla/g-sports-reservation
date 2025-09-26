@@ -4,30 +4,38 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>G-Sports Reservation</title>
-  <link rel="stylesheet" href="style.css" />
   <style>
-    .timestamp {
-      text-align: center;
-      background: #444;
-      color: #32cd32; /* green text */
-      font-weight: bold;
-      font-family: monospace;
-      padding: 8px;
-      margin: 10px 0;
-      border-radius: 4px;
-      transition: opacity 0.25s ease-in-out;
-    }
-    .hidden {
-      opacity: 0;
-    }
-    .approved {
-      color: green;
-      font-weight: bold;
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
     }
     .container {
       max-width: 700px;
       margin: auto;
-      font-family: Arial, sans-serif;
+      padding: 20px;
+    }
+    .back-link {
+      display: inline-block;
+      margin-bottom: 10px;
+      text-decoration: none;
+      color: #007bff;
+      font-weight: bold;
+    }
+    .logo {
+      font-weight: bold;
+      text-align: center;
+      font-size: 22px;
+      margin-top: 10px;
+    }
+    .tagline {
+      font-size: 14px;
+      font-weight: normal;
+      display: block;
+    }
+    h2, h3 {
+      text-align: center;
+      margin: 5px 0;
     }
     table {
       width: 100%;
@@ -48,27 +56,30 @@
       height: auto;
       border-radius: 6px;
     }
-    .logo {
+    .approved {
+      color: green;
       font-weight: bold;
+    }
+
+    /* Blink / pulse styling */
+    .timestamp {
       text-align: center;
-      font-size: 22px;
-      margin-top: 10px;
-    }
-    .tagline {
-      font-size: 14px;
-      font-weight: normal;
-      display: block;
-    }
-    h2, h3 {
-      text-align: center;
-      margin: 5px 0;
-    }
-    .back-link {
-      display: inline-block;
-      margin-bottom: 10px;
-      text-decoration: none;
-      color: #007bff;
+      background: #444;
+      color: #32cd32;
       font-weight: bold;
+      font-family: monospace;
+      padding: 8px;
+      margin: 10px 0;
+      border-radius: 4px;
+
+      /* Animation for fast pulsing */
+      animation: pulseFast 0.6s infinite ease-in-out;
+    }
+
+    @keyframes pulseFast {
+      0%   { opacity: 1; }
+      50%  { opacity: 0.2; }
+      100% { opacity: 1; }
     }
   </style>
 </head>
@@ -107,6 +118,7 @@
       <tr><td>E-mail</td><td>jbilla@gitam.in</td></tr>
       <tr><td>Remarks</td><td class="approved">Approved</td></tr>
     </table>
+
   </div>
 
   <script>
@@ -116,6 +128,7 @@
       const year = now.getFullYear();
       const month = now.toLocaleString('en-US', { month: 'short' }).toUpperCase();
       const day = String(now.getDate()).padStart(2, '0');
+
       const hours = String(now.getHours()).padStart(2, '0');
       const minutes = String(now.getMinutes()).padStart(2, '0');
       const seconds = String(now.getSeconds()).padStart(2, '0');
@@ -124,15 +137,8 @@
       document.getElementById("live-timer").textContent = formatted;
     }
 
-    // Update timer text every second
     setInterval(updateTimer, 1000);
     updateTimer();
-
-    // Make it blink faster (every 500ms)
-    setInterval(() => {
-      const timerElement = document.getElementById("live-timer");
-      timerElement.classList.toggle("hidden");
-    }, 500);
   </script>
 </body>
 </html>
