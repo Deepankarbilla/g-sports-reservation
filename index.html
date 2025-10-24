@@ -3,122 +3,160 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>G-Sports Reservation</title>
+  <title>G-Sports Reservation Information</title>
   <style>
     body {
       margin: 0;
       padding: 0;
       font-family: Arial, sans-serif;
+      background-color: #f7f7f7;
+      color: #000;
     }
+
     .container {
-      max-width: 700px;
-      margin: auto;
-      padding: 20px;
+      max-width: 500px;
+      margin: 30px auto;
+      background: #fff;
+      padding: 25px;
+      border-radius: 8px;
+      box-shadow: 0 0 8px rgba(0,0,0,0.15);
+      text-align: center;
     }
+
     .back-link {
       display: inline-block;
-      margin-bottom: 10px;
       text-decoration: none;
       color: #007bff;
       font-weight: bold;
+      margin-bottom: 10px;
     }
+
     .logo {
+      width: 130px;
+      margin: 5px 0 10px 0;
+    }
+
+    h2 {
+      margin: 0;
+      color: #006b55;
+      font-size: 20px;
+    }
+
+    h3 {
+      margin: 8px 0;
+      font-size: 16px;
+      color: #000;
+    }
+
+    .timestamp {
+      background: #444;
+      color: #00ff7f;
+      font-family: monospace;
+      padding: 8px;
+      border-radius: 4px;
+      display: inline-block;
       font-weight: bold;
-      text-align: center;
-      font-size: 22px;
-      margin-top: 10px;
+      animation: blink 0.8s infinite alternate;
     }
-    .tagline {
-      font-size: 14px;
-      font-weight: normal;
-      display: block;
+
+    @keyframes blink {
+      from { opacity: 1; }
+      to { opacity: 0.3; }
     }
-    h2, h3 {
-      text-align: center;
-      margin: 5px 0;
+
+    .qr {
+      width: 180px;
+      margin: 15px 0;
     }
+
     table {
       width: 100%;
       border-collapse: collapse;
-      margin-top: 15px;
+      margin-top: 5px;
     }
-    table td {
-      border: 1px solid #ccc;
-      padding: 8px;
+
+    td {
+      padding: 8px 6px;
+      border-bottom: 1px solid #eee;
+      text-align: left;
+      font-size: 14px;
     }
+
+    td:first-child {
+      font-weight: bold;
+      width: 40%;
+    }
+
+    .gray {
+      background: #e9ecef;
+      padding: 4px 6px;
+      border-radius: 3px;
+      display: inline-block;
+    }
+
+    .green {
+      color: green;
+      font-weight: bold;
+    }
+
     .profile-cell {
       display: flex;
       align-items: center;
       gap: 10px;
     }
+
     .profile-pic {
-      width: 80px;
-      height: auto;
-      border-radius: 6px;
-    }
-    .approved {
-      color: green;
-      font-weight: bold;
-    }
-
-    /* Blink / pulse styling */
-    .timestamp {
-      text-align: center;
-      background: #444;
-      color: #32cd32;
-      font-weight: bold;
-      font-family: monospace;
-      padding: 8px;
-      margin: 10px 0;
+      width: 60px;
       border-radius: 4px;
-
-      /* Animation for fast pulsing */
-      animation: pulseFast 0.6s infinite ease-in-out;
     }
 
-    @keyframes pulseFast {
-      0%   { opacity: 1; }
-      50%  { opacity: 0.2; }
-      100% { opacity: 1; }
-    }
   </style>
 </head>
 <body>
   <div class="container">
     <a href="#" class="back-link">← Back</a>
 
-    <div class="logo">GITAM<br><span class="tagline">DEEMED TO BE UNIVERSITY</span></div>
-    <h2>G-Sports</h2>
-    <h3>Reservation information</h3>
+    <!-- GITAM Logo -->
+    <img src="https://gsports.gitam.edu/assets/img/logo.png" alt="GITAM Logo" class="logo">
 
-    <!-- Live Timer -->
+    <h2>G-Sports</h2>
+    <h3>Reservation Information</h3>
+
+    <!-- Live Time Display -->
     <div class="timestamp" id="live-timer"></div>
 
+    <!-- QR Code -->
+    <div>
+      <img src="your_qr_code.png" alt="QR Code" class="qr">
+    </div>
+
+    <!-- Reservation Details -->
     <table>
       <tr><td>Ref. number</td><td>20251015545462</td></tr>
-      <tr><td>Reserved date</td><td class="approved">23-Oct-2025</td></tr>
-      <tr><td>Reserved slot</td><td class="approved">03:00 PM to 04:00 PM</td></tr>
-      <tr><td>Status</td><td class="approved">Approved</td></tr>
+      <tr><td>Reserved date</td><td class="green">23-Oct-2025</td></tr>
+      <tr><td>Reserved slot</td><td><span class="gray">03:00 PM to 04:00 PM</span></td></tr>
+      <tr><td>Status</td><td class="green">Approved</td></tr>
 
       <tr><td>Stadium</td><td>Fitness & Performance Centre</td></tr>
       <tr><td>Facility</td><td>Fitness & Performance Centre</td></tr>
       <tr><td>Court</td><td>room 1</td></tr>
+
       <tr>
         <td>Requester</td>
         <td class="profile-cell">
-          <img src="your-photo.jpg" alt="Profile Photo" class="profile-pic" />
+          <img src="your_photo.jpg" alt="Profile Photo" class="profile-pic" />
           <div>
             <strong>BILLA JAYA SANKALPA NARAYAN</strong><br />
             DEEPANKAR (2023000119 - student)
           </div>
         </td>
       </tr>
+
       <tr><td>Request from</td><td>VSP - GIT - CSE</td></tr>
       <tr><td>Mobile</td><td>8977602969</td></tr>
       <tr><td>E-mail</td><td>jbilla@gitam.in</td></tr>
-      <tr><td>Remarks</td><td class="approved">Approved</td></tr>
+      <tr><td>Remarks</td><td class="green">Approved</td></tr>
     </table>
-
   </div>
 
   <script>
