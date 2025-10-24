@@ -31,11 +31,6 @@
       margin-bottom: 10px;
     }
 
-    .logo {
-      width: 130px;
-      margin: 5px 0 10px 0;
-    }
-
     h2 {
       margin: 0;
       color: #006b55;
@@ -48,20 +43,22 @@
       color: #000;
     }
 
-    .timestamp {
-      background: #444;
+    /* Shared blinking animation for timer and slot */
+    @keyframes blinkSync {
+      0%   { opacity: 1; }
+      50%  { opacity: 0.3; }
+      100% { opacity: 1; }
+    }
+
+    .timestamp, .live-block {
+      background: #000;
       color: #00ff7f;
       font-family: monospace;
-      padding: 8px;
+      padding: 8px 10px;
       border-radius: 4px;
       display: inline-block;
       font-weight: bold;
-      animation: blink 0.8s infinite alternate;
-    }
-
-    @keyframes blink {
-      from { opacity: 1; }
-      to { opacity: 0.3; }
+      animation: blinkSync 0.6s infinite ease-in-out;
     }
 
     .qr {
@@ -87,13 +84,6 @@
       width: 40%;
     }
 
-    .gray {
-      background: #e9ecef;
-      padding: 4px 6px;
-      border-radius: 3px;
-      display: inline-block;
-    }
-
     .green {
       color: green;
       font-weight: bold;
@@ -116,9 +106,6 @@
   <div class="container">
     <a href="#" class="back-link">← Back</a>
 
-    <!-- GITAM Logo -->
-    <img src="https://gsports.gitam.edu/assets/img/logo.png" alt="GITAM Logo" class="logo">
-
     <h2>G-Sports</h2>
     <h3>Reservation Information</h3>
 
@@ -127,14 +114,17 @@
 
     <!-- QR Code -->
     <div>
-      <img src="your_qr_code.png.PNG"alt="QR Code" class="qr">
+      <img src="your_qr_code.png" alt="QR Code" class="qr">
     </div>
 
     <!-- Reservation Details -->
     <table>
       <tr><td>Ref. number</td><td>20251015545462</td></tr>
       <tr><td>Reserved date</td><td class="green">23-Oct-2025</td></tr>
-      <tr><td>Reserved slot</td><td><span class="gray">03:00 PM to 04:00 PM</span></td></tr>
+      <tr>
+        <td>Reserved slot</td>
+        <td><span class="live-block">03:00 PM to 04:00 PM</span></td>
+      </tr>
       <tr><td>Status</td><td class="green">Approved</td></tr>
 
       <tr><td>Stadium</td><td>Fitness & Performance Centre</td></tr>
